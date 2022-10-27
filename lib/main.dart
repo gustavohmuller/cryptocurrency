@@ -1,4 +1,5 @@
-import 'package:cryptocurrency/screens/home_screen.dart';
+import 'package:cryptocurrency/screens/market_screen.dart';
+import 'package:cryptocurrency/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Cryptocurrency App',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: "/market",
+      routes: {
+        "/market": (context) => const MarketScreen(),
+        "/search": (context) => const SearchScreen(),
+
+        // SPLASH SCREEN: https://www.figma.com/file/kVS1HwSyK9RRAO7d1w8Gf6/BlackGold-Crypto--Currency--Free-3D-icons-(Community)?node-id=2%3A85
+      },
     );
   }
 }

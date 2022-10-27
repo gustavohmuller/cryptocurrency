@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:cryptocurrency/models/cryptocurrency.dart';
+import 'package:cryptocurrency/models/search_cryptocurrency.dart';
 import 'package:http/http.dart' as http;
 
 class CryptocurrencyService {
@@ -21,6 +21,22 @@ class CryptocurrencyService {
       List<dynamic> dynamicList = jsonDecode(response.body)["data"]["coins"];
       for (var jsonMap in dynamicList) {
         cryptocurrencyList.add(Cryptocurrency.fromMap(jsonMap));
+      }
+    }
+
+    return cryptocurrencyList;
+  }
+
+  static Future<List<SearchCryptocurrency>?> getSearchCryptocurrency(String query) async {
+    List<SearchCryptocurrency> cryptocurrencyList = [];
+
+    http.Response response =
+        await http.get(Uri.parse("$url/search-suggestions?query=$query"), headers: headers);
+
+    if (response.statusCode == 200) {
+      List<dynamic> dynamicList = jsonDecode(response.body)["data"]["coins"];
+      for (var jsonMap in dynamicList) {
+        cryptocurrencyList.add(SearchCryptocurrency.fromMap(jsonMap));
       }
     }
 

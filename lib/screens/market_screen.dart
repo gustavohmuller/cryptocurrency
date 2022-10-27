@@ -1,16 +1,17 @@
+import 'package:cryptocurrency/components/bottom_bar.dart';
 import 'package:cryptocurrency/components/cryptocurrency_card.dart';
 import 'package:cryptocurrency/models/cryptocurrency.dart';
 import 'package:cryptocurrency/services/cryptocurrency_service.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class MarketScreen extends StatefulWidget {
+  const MarketScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<MarketScreen> createState() => _MarketScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MarketScreenState extends State<MarketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,22 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.analytics),
-            label: "Market",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet),
-            label: "Wallet",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            label: "Account",
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
