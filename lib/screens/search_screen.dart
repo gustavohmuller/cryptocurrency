@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:cryptocurrency/components/bottom_bar.dart';
 import 'package:cryptocurrency/components/search_cryptocurrency_card.dart';
 import 'package:cryptocurrency/models/search_cryptocurrency.dart';
 import 'package:cryptocurrency/services/cryptocurrency_service.dart';
-import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -20,9 +21,10 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {
       isLoading = true;
     });
+
     searchCryptocurrencyList =
         (await CryptocurrencyService.getSearchCryptocurrency(query))!;
-        print(searchCryptocurrencyList.length);
+
     setState(() {
       isLoading = false;
     });

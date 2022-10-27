@@ -1,7 +1,9 @@
 import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
 import 'package:cryptocurrency/models/cryptocurrency.dart';
 import 'package:cryptocurrency/models/search_cryptocurrency.dart';
-import 'package:http/http.dart' as http;
 
 class CryptocurrencyService {
   static const String url = "https://coinranking1.p.rapidapi.com";

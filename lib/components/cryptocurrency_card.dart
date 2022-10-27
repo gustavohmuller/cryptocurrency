@@ -1,7 +1,9 @@
-import 'package:cryptocurrency/models/cryptocurrency.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+
+import 'package:cryptocurrency/models/cryptocurrency.dart';
 
 class CryptocurrencyCard extends StatelessWidget {
   final Cryptocurrency cryptocurrency;

@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:cryptocurrency/components/bottom_bar.dart';
 import 'package:cryptocurrency/components/cryptocurrency_card.dart';
 import 'package:cryptocurrency/models/cryptocurrency.dart';
 import 'package:cryptocurrency/services/cryptocurrency_service.dart';
-import 'package:flutter/material.dart';
 
 class MarketScreen extends StatefulWidget {
   const MarketScreen({Key? key}) : super(key: key);

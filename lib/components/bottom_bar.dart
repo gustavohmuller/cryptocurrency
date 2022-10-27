@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:page_transition/page_transition.dart';
+
+import 'package:cryptocurrency/screens/market_screen.dart';
+import 'package:cryptocurrency/screens/search_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -16,10 +21,24 @@ class _BottomBarState extends State<BottomBar> {
       _selectedIndex = index;
       switch (_selectedIndex) {
         case 0:
-          Navigator.pushReplacementNamed(context, '/market');
+          Navigator.pushAndRemoveUntil(
+              context,
+              PageTransition(
+                child: const MarketScreen(),
+                type: PageTransitionType.leftToRight,
+                duration: const Duration(milliseconds: 250),
+              ),
+              (route) => false);
           break;
         case 1:
-          Navigator.pushReplacementNamed(context, '/search');
+          Navigator.pushAndRemoveUntil(
+              context,
+              PageTransition(
+                child: const SearchScreen(),
+                type: PageTransitionType.rightToLeft,
+                duration: const Duration(milliseconds: 250),
+              ),
+              (route) => false);
           break;
       }
     });

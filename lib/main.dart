@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:cryptocurrency/screens/market_screen.dart';
 import 'package:cryptocurrency/screens/search_screen.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
