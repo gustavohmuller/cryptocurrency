@@ -18,20 +18,12 @@ class CryptocurrencyCard extends StatelessWidget {
         NumberFormat.decimalPercentPattern(locale: "en_US", decimalDigits: 2);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: const Color(0XFF3B4252),
           borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(color: Colors.grey[300]!.withOpacity(0.5)),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(5, 3),
-              blurRadius: 15,
-              spreadRadius: 1,
-              color: Colors.grey[200]!,
-            ),
-          ],
+          border: Border.all(color: const Color(0XFF3B4252).withOpacity(0.5)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
@@ -55,6 +47,7 @@ class CryptocurrencyCard extends StatelessWidget {
                       Text(
                         cryptocurrency.name,
                         style: const TextStyle(
+                          color: Color(0XFFE6E6E6),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                           overflow: TextOverflow.ellipsis,
@@ -63,11 +56,11 @@ class CryptocurrencyCard extends StatelessWidget {
                       const SizedBox(height: 2.0),
                       Text(
                         "${cryptocurrency.symbol}/USD",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
-                          color: Colors.grey[600],
+                          color: Color(0XFFE6E6E6),
                           fontWeight: FontWeight.w500,
-                          overflow: TextOverflow.fade,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
@@ -77,7 +70,14 @@ class CryptocurrencyCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("\$${numberFormat.format(cryptocurrency.price)}"),
+                  Text(
+                    "\$${numberFormat.format(cryptocurrency.price)}",
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Color(0XFFE6E6E6),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

@@ -14,12 +14,14 @@ class SearchCryptocurrencyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final NumberFormat numberFormat = NumberFormat.decimalPattern("en_US");
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[300],
+          color: const Color(0XFF3B4252),
           borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(color: const Color(0XFF3B4252).withOpacity(0.5)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
@@ -36,12 +38,28 @@ class SearchCryptocurrencyCard extends StatelessWidget {
                       fit: BoxFit.contain,
                     ),
                   ),
-                  const SizedBox(width: 8.0),
+                  const SizedBox(width: 16.0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(cryptocurrency.name),
-                      Text("${cryptocurrency.symbol}/USD"),
+                      Text(
+                        cryptocurrency.name,
+                        style: const TextStyle(
+                          color: Color(0XFFE6E6E6),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        "${cryptocurrency.symbol}/USD",
+                        style: const TextStyle(
+                          color: Color(0XFFE6E6E6),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -49,7 +67,15 @@ class SearchCryptocurrencyCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("\$${numberFormat.format(cryptocurrency.price)}"),
+                  Text(
+                    "\$${numberFormat.format(cryptocurrency.price)}",
+                    style: const TextStyle(
+                      color: Color(0XFFE6E6E6),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
             ],

@@ -16,13 +16,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cryptocurrency App',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          backgroundColor: Color(0XFF2E3440),
+          titleTextStyle: TextStyle(
+            color: Color(0XFFE6E6E6),
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
+          actionsIconTheme: IconThemeData(color: Color(0XFFE6E6E6)),
+          iconTheme: IconThemeData(color: Color(0XFFE6E6E6)),
+        ),
+        //textTheme: GoogleFonts.bitternuTextTheme(),
+      ),
       initialRoute: "/bottom_bar",
       routes: {
         "/bottom_bar": (context) => const BottomBar(),
         "/market": (context) => const MarketScreen(),
         "/search": (context) => const SearchScreen(),
-
-        // SPLASH SCREEN: https://www.figma.com/file/kVS1HwSyK9RRAO7d1w8Gf6/BlackGold-Crypto--Currency--Free-3D-icons-(Community)?node-id=2%3A85
       },
     );
   }

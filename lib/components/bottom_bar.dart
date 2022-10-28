@@ -22,27 +22,28 @@ class _BottomBarState extends State<BottomBar> {
       body: tabs[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
-        backgroundColor: const Color(0XFF0075FF),
+        backgroundColor: const Color(0XFF2E3440),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               "assets/images/market_icon.svg",
-              color: Colors.white,
+              color: const Color(0XFFE6E6E6),
             ),
             label: "Market",
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               "assets/images/search_icon.svg",
-              color: Colors.white,
+              color: const Color(0XFFE6E6E6),
             ),
             label: "Search",
           ),
         ],
-        selectedItemColor: Colors.white,
+        selectedItemColor: const Color(0XFFE6E6E6),
+        unselectedItemColor: const Color(0XFFE6E6E6),
         showUnselectedLabels: true,
         currentIndex: _selectedIndex,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             _selectedIndex = index;
           });

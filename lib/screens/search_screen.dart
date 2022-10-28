@@ -32,14 +32,12 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0XFF2E3440),
       appBar: AppBar(
         elevation: 0,
         title: const Text(
           "Search",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-          ),
+          textAlign: TextAlign.start,
         ),
       ),
       body: SingleChildScrollView(
@@ -49,9 +47,9 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               TextField(
                 decoration: InputDecoration(
-                  suffixIcon: Icon(
+                  suffixIcon: const Icon(
                     Icons.search,
-                    color: Colors.grey[500],
+                    color: Color(0XFFE6E6E6),
                   ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -60,24 +58,29 @@ class _SearchScreenState extends State<SearchScreen> {
                         style: BorderStyle.none,
                       )),
                   hintText: "Search for cryptocurrency",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey[300],
+                    color: Color(0XFF606777),
                   ),
-                  fillColor: Colors.grey[100],
+                  fillColor: const Color(0XFF3B4252),
                   filled: true,
+                ),
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Color(0XFFE6E6E6),
                 ),
                 onChanged: (query) {
                   searchCryptocurrency(query);
                 },
               ),
+              const SizedBox(height: 4.0),
               isLoading
                   ? SizedBox(
                       height: MediaQuery.of(context).size.height / 1.5,
                       child: const Center(
                         child: CircularProgressIndicator(
-                          color: Color(0XFF0075FF),
+                          color: Color(0XFFE6E6E6),
                         ),
                       ),
                     )

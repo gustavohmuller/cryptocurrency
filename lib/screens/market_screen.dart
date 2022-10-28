@@ -18,16 +18,11 @@ class _MarketScreenState extends State<MarketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0XFF2E3440),
       appBar: AppBar(
-        backgroundColor: const Color(0XFF0075FF),
-        elevation: 0,
         title: const Text(
           "Market",
           textAlign: TextAlign.start,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -35,7 +30,7 @@ class _MarketScreenState extends State<MarketScreen> {
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
           child: Column(
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
@@ -43,18 +38,28 @@ class _MarketScreenState extends State<MarketScreen> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
-                      color: Color(0XFF0075FF),
+                      color: Color(0XFFE6E6E6),
                     ),
                   ),
-                  Column(
+                  Row(
                     children: const [
-                      Text("Cryptos"),
-                      SizedBox(width: 55, child: MarketDropdownButton()),
+                      Text(
+                        "Number of cryptocurrencies: ",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0XFFE6E6E6),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 16.0),
+                        child:
+                            SizedBox(width: 55, child: MarketDropdownButton()),
+                      ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 8.0),
               ValueListenableBuilder(
                 valueListenable: limit,
                 builder: (context, value, child) => Column(
@@ -69,7 +74,7 @@ class _MarketScreenState extends State<MarketScreen> {
                             height: MediaQuery.of(context).size.height / 1.5,
                             child: const Center(
                               child: CircularProgressIndicator(
-                                color: Color(0XFF0075FF),
+                                color: Color(0XFFE6E6E6),
                               ),
                             ),
                           );
@@ -111,13 +116,17 @@ class _MarketDropdownButtonState extends State<MarketDropdownButton> {
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
       child: DropdownButton(
+        dropdownColor: const Color(0XFF2E3440),
         value: dropdownValue,
-        icon: const Icon(Icons.arrow_drop_down),
+        icon: const Icon(
+          Icons.arrow_drop_down_rounded,
+          color: Color(0XFFE6E6E6),
+        ),
         elevation: 0,
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: Colors.black,
+          color: Color(0XFFE6E6E6),
         ),
         onChanged: (int? selectedValue) {
           setState(() {
