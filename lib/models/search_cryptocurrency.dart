@@ -12,7 +12,7 @@ class SearchCryptocurrency {
     required this.symbol,
     required this.price,
   });
-  
+
   SearchCryptocurrency.fromMap(Map<String, dynamic> map)
       : uuid = map["uuid"],
         iconUrl = map["iconUrl"],

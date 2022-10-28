@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:cryptocurrency/components/bottom_bar.dart';
 import 'package:cryptocurrency/screens/market_screen.dart';
 import 'package:cryptocurrency/screens/search_screen.dart';
 
@@ -15,8 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cryptocurrency App',
       debugShowCheckedModeBanner: false,
-      initialRoute: "/market",
+      initialRoute: "/bottom_bar",
       routes: {
+        "/bottom_bar": (context) => const BottomBar(),
         "/market": (context) => const MarketScreen(),
         "/search": (context) => const SearchScreen(),
 

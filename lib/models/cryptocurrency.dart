@@ -14,7 +14,7 @@ class Cryptocurrency {
     required this.price,
     required this.change,
   });
-  
+
   Cryptocurrency.fromMap(Map<String, dynamic> map)
       : uuid = map["uuid"],
         iconUrl = map["iconUrl"],

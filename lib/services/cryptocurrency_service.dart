@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 import 'package:http/http.dart' as http;
 
 import 'package:cryptocurrency/models/cryptocurrency.dart';
@@ -13,11 +15,12 @@ class CryptocurrencyService {
     'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
   };
 
-  static Future<List<Cryptocurrency>> getCryptocurrencies() async {
+  static Future<List<Cryptocurrency>> getCryptocurrencies(
+      {required ValueNotifier<int> limit}) async {
     List<Cryptocurrency> cryptocurrencyList = [];
 
-    http.Response response =
-        await http.get(Uri.parse("$url/coins?limit=50"), headers: headers);
+    http.Response response = await http
+        .get(Uri.parse("$url/coins?limit=${limit.value}"), headers: headers);
 
     if (response.statusCode == 200) {
       List<dynamic> dynamicList = jsonDecode(response.body)["data"]["coins"];
@@ -29,11 +32,13 @@ class CryptocurrencyService {
     return cryptocurrencyList;
   }
 
-  static Future<List<SearchCryptocurrency>?> getSearchCryptocurrency(String query) async {
+  static Future<List<SearchCryptocurrency>?> getSearchCryptocurrency(
+      String query) async {
     List<SearchCryptocurrency> cryptocurrencyList = [];
 
-    http.Response response =
-        await http.get(Uri.parse("$url/search-suggestions?query=$query"), headers: headers);
+    http.Response response = await http.get(
+        Uri.parse("$url/search-suggestions?query=$query"),
+        headers: headers);
 
     if (response.statusCode == 200) {
       List<dynamic> dynamicList = jsonDecode(response.body)["data"]["coins"];

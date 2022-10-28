@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:cryptocurrency/components/bottom_bar.dart';
 import 'package:cryptocurrency/components/search_cryptocurrency_card.dart';
 import 'package:cryptocurrency/models/search_cryptocurrency.dart';
 import 'package:cryptocurrency/services/cryptocurrency_service.dart';
@@ -34,7 +33,14 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Search"),
+        elevation: 0,
+        title: const Text(
+          "Search",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -42,12 +48,39 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             children: [
               TextField(
+                decoration: InputDecoration(
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey[500],
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: const BorderSide(
+                        width: 0.0,
+                        style: BorderStyle.none,
+                      )),
+                  hintText: "Search for cryptocurrency",
+                  hintStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[300],
+                  ),
+                  fillColor: Colors.grey[100],
+                  filled: true,
+                ),
                 onChanged: (query) {
                   searchCryptocurrency(query);
                 },
               ),
               isLoading
-                  ? const CircularProgressIndicator()
+                  ? SizedBox(
+                      height: MediaQuery.of(context).size.height / 1.5,
+                      child: const Center(
+                        child: CircularProgressIndicator(
+                          color: Color(0XFF0075FF),
+                        ),
+                      ),
+                    )
                   : ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       shrinkWrap: true,
@@ -62,7 +95,6 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
     );
   }
 }
