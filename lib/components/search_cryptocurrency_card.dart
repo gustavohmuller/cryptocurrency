@@ -28,41 +28,45 @@ class SearchCryptocurrencyCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: SvgPicture.network(
-                      cryptocurrency.iconUrl,
-                      fit: BoxFit.contain,
+              Flexible(
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 30,
+                      height: 30,
+                      child: SvgPicture.network(
+                        cryptocurrency.iconUrl,
+                        fit: BoxFit.contain,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        cryptocurrency.name,
-                        style: const TextStyle(
-                          color: Color(0XFFE6E6E6),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                    const SizedBox(width: 16.0),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            cryptocurrency.name,
+                            style: const TextStyle(
+                              color: Color(0XFFE6E6E6),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Text(
+                            "${cryptocurrency.symbol}/USD",
+                            style: const TextStyle(
+                              color: Color(0XFFE6E6E6),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        "${cryptocurrency.symbol}/USD",
-                        style: const TextStyle(
-                          color: Color(0XFFE6E6E6),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
